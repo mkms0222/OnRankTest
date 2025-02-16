@@ -25,7 +25,7 @@ export const authAPI = {
   },
 
   // 로그인
-  login: (data) => api.post("/auth/oauth/check", data),
+  login: (data) => api.post("/auth/login", data),
 
   add: (data) => api.post("/auth/add", data),
 };
