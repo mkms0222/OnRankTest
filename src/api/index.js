@@ -11,11 +11,11 @@ const api = axios.create({
 
 // API 요청 함수들
 export const authAPI = {
-  // 구글 소셜 로그인 - 백엔드에서 리다이렉트 처리
-  googleLogin: () => api.get("/oauth"),
+  // 구글 소셜 로그인
+  login: (data) => api.post("/oauth", data),
 
   // 회원 정보 입력
-  addUserInfo: (userData) => api.post("/oauth/add", userData),
+  add: (userData) => api.post("/oauth/add", userData),
 
   // 로그아웃
   logout: async () => {
@@ -44,12 +44,17 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     // 에러 처리
-    if (error.response.status === 401) {
-      // 인증 에러 처리
-      localStorage.removeItem("token");
-      // 로그인 페이지로 리다이렉트 등의 처리
+    if (error.response) {
+      console.error(
+        "❌ API 응답 오류:",
+        error.response.status,
+        error.response.data,
+      );
+    } else {
+      console.error("❌ 네트워크 오류 또는 서버 다운");
     }
-    return Promise.reject(error);
+
+    return Promise.reject(error); // 오류를 그대로 반환
   },
 );
 
