@@ -11,7 +11,13 @@ const api = axios.create({
 // API 요청 함수들
 export const authAPI = {
   // 사용자 확인 (신규/기존)
-  check: (data) => api.post("/auth/oauth/check", data),
+  check: (data) =>
+    api.get("/auth/oauth/check", {
+      params: {
+        email: data.email,
+        googleId: data.googleId,
+      },
+    }),
 
   // 회원가입
   registerUser: (userData) => {
@@ -19,7 +25,7 @@ export const authAPI = {
   },
 
   // 로그인
-  login: (data) => api.post("/auth/oauth", data),
+  login: (data) => api.post("/auth/oauth/check", data),
 
   add: (data) => api.post("/auth/add", data),
 };

@@ -17,14 +17,14 @@ function Login() {
       const decoded = jwt_decode(response.credential);
       console.log("Google User Info:", decoded);
 
-      // '/auth/oauth/check' API 호출
+      // 사용자 확인 API 호출
       const checkUserResponse = await authAPI.check({
         email: decoded.email,
         googleId: decoded.sub,
       });
 
-      // handler.js에서 반환한 isNewUser 값을 여기서 받음
       const { isNewUser } = checkUserResponse.data;
+      console.log("isNewUser 값:", isNewUser);
 
       if (isNewUser) {
         // 신규 사용자면 회원가입 페이지로
