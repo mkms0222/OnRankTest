@@ -6,19 +6,13 @@ const api = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true, // 모든 요청에 credentials 포함
 });
 
 // API 요청 함수들
 export const authAPI = {
   // 사용자 확인 (신규/기존)
-  check: (data) =>
-    api.get("/auth/oauth/check", {
-      params: {
-        email: data.email,
-        googleId: data.googleId,
-      },
-      withCredentials: true,
-    }),
+  check: () => api.get("/auth/oauth/check"), // 파라미터 없이 요청
 
   // 회원가입
   registerUser: (userData) => {
