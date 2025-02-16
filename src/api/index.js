@@ -11,19 +11,17 @@ const api = axios.create({
 
 // API 요청 함수들
 export const authAPI = {
-  // 사용자 확인 (신규/기존)
-  check: () => api.get("/auth/oauth/check"), // 파라미터 없이 요청
+  // 구글 소셜 로그인 - 백엔드에서 리다이렉트 처리
+  googleLogin: () => api.get("/oauth"),
 
-  // 회원가입
-  registerUser: (userData) => {
-    return api.post("/auth/add", userData);
+  // 회원 정보 입력
+  addUserInfo: (userData) => api.post("/oauth/add", userData),
+
+  // 로그아웃
+  logout: async () => {
+    await api.post("/logout");
+    window.location.href = "/";
   },
-
-  // 로그인
-  login: (data) => api.post("/auth/login", data),
-
-  // 회원가입
-  add: (data) => api.post("/auth/add", data),
 };
 
 // 요청 인터셉터 - 요청 전에 실행
