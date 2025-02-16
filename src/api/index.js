@@ -17,6 +17,7 @@ export const authAPI = {
         email: data.email,
         googleId: data.googleId,
       },
+      withCredentials: true,
     }),
 
   // 회원가입
@@ -27,6 +28,7 @@ export const authAPI = {
   // 로그인
   login: (data) => api.post("/auth/login", data),
 
+  // 회원가입
   add: (data) => api.post("/auth/add", data),
 };
 
