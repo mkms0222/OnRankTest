@@ -1,0 +1,90 @@
+/* 전체 컨테이너 스타일 */
+.container {
+  width: 900px; /* 적절한 크기로 조정 */
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #d3d3d3; /* 회색 배경 */
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* 버튼을 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* 완료 버튼 스타일 */
+.button {
+  padding: 10px 20px;
+  background-color: #a9a9a9; /* 회색 버튼 */
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 150px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* 부모 요소 기준으로 중앙 정렬 */
+}
+
+/* 버튼 호버 효과 */
+.button:hover {
+  background-color: #888;
+}
+
+/* 제목 스타일 */
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* 폼 스타일 */
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 왼쪽 정렬 */
+  width: 100%;
+}
+
+/* 라벨 스타일 (왼쪽 정렬) */
+.label {
+  width: 80%;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* 소속(선택) 텍스트 */
+.sub-label {
+  width: 80%;
+  text-align: left;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* 입력 필드 스타일 */
+.input {
+  width: 60%;
+  height: 35px;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f0f0f0;
+  outline: none;
+}
+
+/* 입력 필드 포커스 효과 */
+.input:focus {
+  border: 2px solid #999;
+}

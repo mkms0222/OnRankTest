@@ -1,0 +1,10 @@
+.google-login-wrapper {
+  width: 200px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d3d3d3;
+  border-radius: 4px;
+  cursor: pointer;
+}
