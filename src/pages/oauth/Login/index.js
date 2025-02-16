@@ -18,10 +18,7 @@ function Login() {
       console.log("Google User Info:", decoded);
 
       // 사용자 확인 API 호출
-      const checkUserResponse = await authAPI.check({
-        email: decoded.email,
-        googleId: decoded.sub,
-      });
+      const checkUserResponse = await authAPI.check();
 
       const { isNewUser } = checkUserResponse.data;
       console.log("isNewUser 값:", isNewUser);
